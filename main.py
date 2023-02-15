@@ -6,8 +6,10 @@ from pprint import pprint
 import ffmpeg
 from PIL import Image, ExifTags
 
-def image_metadata(path_f):
+def image_metadata(path_f):# На входе она принимает только один параметр-путь к файлу изображения
     img = Image.open(path_f)
+    # Создадим словарь, в котором базовые данные о фото-имя, разрешение, ширина, высота и прочие.
+    # Эти данные будут выводиться е, если метеданных в фото не оказалось или они не были прочитаны.
     info_dict = {
             "Имя файла": os.path.split(path_f)[1],
             "Разрешение изображения": img.size,
